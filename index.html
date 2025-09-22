@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #response {
+      margin-top: 10px;
+      text-align: center;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Contact Us</h2>
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSfwWOzDgVSKgbSvF32nUho-F3TLhg9bq9eBHwKt9TjRj6Ve6w/viewform?usp=header">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="entry.673142314" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="entry.1292811034" required />
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="entry.1449768429" rows="4" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+    <p id="response"></p>
+  </div>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      document.getElementById("response").textContent = "Thank you for your message!";
+      this.reset();
+    });
+  </script>
+</body>
+</html>
+
